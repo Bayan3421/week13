@@ -53,6 +53,6 @@ if marker_name:
     m.location = coordinates  
     m.zoom_start = 18
 
-# Отображаем карту
+
 st_folium(m, width=725)
 
