@@ -28,5 +28,30 @@ for loc in locations:
 
 m.add_child(marker_cluster)
 
+search = Search(
+    layer=marker_cluster,  
+    search_label="name",   
+    placeholder="Найти маркер...",  
+    collapsed=False 
+)
+m.add_child(search)
+
+
+st.sidebar.title("Поиск маркера")
+marker_name = st.sidebar.selectbox("Выберите маркер:", [""] + list(marker_dict.keys()))
+
+if marker_name:
+    coordinates = marker_dict[marker_name]
+    
+    folium.Marker(
+        location=coordinates,
+        popup=marker_name,
+        tooltip="Выбранный маркер",
+        icon=folium.Icon(color="red")
+    ).add_to(m)
+   
+    m.location = coordinates
+    m.zoom_start = 18
+
 
 st_folium(m, width=725)
