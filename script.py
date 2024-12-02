@@ -5,7 +5,7 @@ from folium.plugins import MarkerCluster
 from streamlit_folium import st_folium
 
 
-st.title("Карта с маркерами")
+st.title("Карта с маркерами КазАту")
 
 
 with open("coordinates.json", "r") as file:
